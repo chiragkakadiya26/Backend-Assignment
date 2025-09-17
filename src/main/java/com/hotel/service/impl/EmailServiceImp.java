@@ -26,7 +26,7 @@ public class EmailServiceImp implements EmailService {
     public void sendBookingNotification(Hotel hotel, Booking booking) {
         try {
             SimpleMailMessage message = new SimpleMailMessage();
-            message.setTo("kakadiay076@gmail.com");
+            message.setTo("test@gmail.com"); // Replace with actual staff email or distribution list
             message.setSubject("New Booking Created - " + hotel.getName());
             message.setText(buildBookingNotificationText(hotel, booking));
             mailSender.send(message);

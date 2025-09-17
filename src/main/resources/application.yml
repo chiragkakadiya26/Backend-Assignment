@@ -6,8 +6,8 @@ spring:
   mail:
     host: smtp.gmail.com
     port: 587
-    username: chiragkakadiya56@gmail.com
-    password: "laejzgvcxiexvzrd" # Enclosed in quotes to handle special characters
+    username: test@gmail.com # Replace with your email
+    password: "laejzgvcxiesadszrdere" # Enclosed in quotes to handle special characters
     properties:
       mail:
         smtp:
@@ -30,10 +30,7 @@ auth0:
 
 app:
   support:
-    email: kakadiay076@gmail.com
-#    # Uncomment the following lines if needed
-#    # email: milankakadiya29@gmail.com
-#    # email: utsavdkukadiya2604@gmail.com
+    email: test@gmail.com # Replace with your support email
 
 logging:
   level:

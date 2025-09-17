@@ -2,9 +2,7 @@ package com.hotel;
 
 import com.hotel.model.Hotel;
 import com.hotel.model.RoomType;
-import com.hotel.model.User;
 import com.hotel.repository.HotelRepository;
-import com.hotel.repository.UserRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -14,12 +12,9 @@ import java.util.Optional;
 
 @SpringBootApplication
 public class BackendAssignmentApplication implements CommandLineRunner {
-
-	private final UserRepository userRepository;
 	private final HotelRepository hotelRepository;
 
-	public BackendAssignmentApplication(UserRepository userRepository, HotelRepository hotelRepository) {
-		this.userRepository = userRepository;
+	public BackendAssignmentApplication(HotelRepository hotelRepository) {
 		this.hotelRepository = hotelRepository;
 	}
 
