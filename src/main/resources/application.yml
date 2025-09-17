@@ -1,0 +1,46 @@
+spring:
+  data:
+    mongodb:
+      uri: ${MONGODB_URI:mongodb://localhost:27017}
+      database: ${MONGODB_DATABASE:hotel_booking_db}
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: chiragkakadiya56@gmail.com
+    password: "laejzgvcxiexvzrd" # Enclosed in quotes to handle special characters
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+
+
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: ${AUTH0_ISSUER_URI:https://dev-yci6xoknjzaj8md4.us.auth0.com/}
+
+#auth0:
+#  audience: ${AUTH0_AUDIENCE:https://dev-yci6xoknjzaj8md4.us.auth0.com/api/v2/}
+auth0:
+  audience: https://hotel-api/api
+
+
+app:
+  support:
+    email: kakadiay076@gmail.com
+#    # Uncomment the following lines if needed
+#    # email: milankakadiya29@gmail.com
+#    # email: utsavdkukadiya2604@gmail.com
+
+logging:
+  level:
+    root: INFO
+    com.otelier: DEBUG
+
+server:
+  port: 9090
+
+
