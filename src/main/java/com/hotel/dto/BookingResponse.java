@@ -1,32 +1,31 @@
 package com.hotel.dto;
 
-import lombok.Data;
-
 import java.time.LocalDate;
+import java.util.Date;
 
 public class BookingResponse {
     private String id;
     private String hotelId;
     private String guestName;
     private String guestEmail;
-    private LocalDate checkInDate;
-    private LocalDate checkOutDate;
+    private LocalDate checkIn;
+    private LocalDate checkOut;
     private String roomType;
     private Integer numberOfGuests;
     private Double totalAmount;
     private String status;
-    private Data createdAt;
+    private Date createdAt;
 
     public BookingResponse() {
     }
 
-    public BookingResponse(String id, String hotelId, String guestName, String guestEmail, LocalDate checkInDate, LocalDate checkOutDate, String roomType, Integer numberOfGuests, Double totalAmount, String status, Data createdAt) {
+    public BookingResponse(String id, String hotelId, String guestName, String guestEmail, LocalDate checkIn, LocalDate checkOut, String roomType, Integer numberOfGuests, Double totalAmount, String status, Date createdAt) {
         this.id = id;
         this.hotelId = hotelId;
         this.guestName = guestName;
         this.guestEmail = guestEmail;
-        this.checkInDate = checkInDate;
-        this.checkOutDate = checkOutDate;
+        this.checkIn = checkIn;
+        this.checkOut = checkOut;
         this.roomType = roomType;
         this.numberOfGuests = numberOfGuests;
         this.totalAmount = totalAmount;
@@ -66,20 +65,20 @@ public class BookingResponse {
         this.guestEmail = guestEmail;
     }
 
-    public LocalDate getCheckInDate() {
-        return checkInDate;
+    public LocalDate getCheckIn() {
+        return checkIn;
     }
 
-    public void setCheckInDate(LocalDate checkInDate) {
-        this.checkInDate = checkInDate;
+    public void setCheckIn(LocalDate checkIn) {
+        this.checkIn = checkIn;
     }
 
-    public LocalDate getCheckOutDate() {
-        return checkOutDate;
+    public LocalDate getCheckOut() {
+        return checkOut;
     }
 
-    public void setCheckOutDate(LocalDate checkOutDate) {
-        this.checkOutDate = checkOutDate;
+    public void setCheckOut(LocalDate checkOut) {
+        this.checkOut = checkOut;
     }
 
     public String getRoomType() {
@@ -114,11 +113,11 @@ public class BookingResponse {
         this.status = status;
     }
 
-    public Data getCreatedAt() {
+    public Date getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(Data createdAt) {
+    public void setCreatedAt(Date createdAt) {
         this.createdAt = createdAt;
     }
 }
