@@ -11,7 +11,6 @@ import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
 
 @Service
-@ConditionalOnBean(JavaMailSender.class)
 @Slf4j
 public class EmailServiceImp implements EmailService {
 
