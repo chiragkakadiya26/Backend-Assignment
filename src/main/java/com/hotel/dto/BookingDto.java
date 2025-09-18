@@ -1,11 +1,10 @@
 package com.hotel.dto;
 
 import jakarta.validation.constraints.*;
-import lombok.Data;
 
 import java.time.LocalDate;
 
-@Data
+
 public class BookingDto {
     
     @NotBlank(message = "Guest name is required")
@@ -31,4 +30,64 @@ public class BookingDto {
     @Min(value = 1, message = "Number of guests must be at least 1")
     @Max(value = 10, message = "Number of guests cannot exceed 10")
     private Integer numberOfGuests;
+
+    public BookingDto() {
+    }
+
+    public BookingDto(String guestName, String guestEmail, LocalDate checkIn, LocalDate checkOut, String roomType, Integer numberOfGuests) {
+        this.guestName = guestName;
+        this.guestEmail = guestEmail;
+        this.checkIn = checkIn;
+        this.checkOut = checkOut;
+        this.roomType = roomType;
+        this.numberOfGuests = numberOfGuests;
+    }
+
+    public String getGuestName() {
+        return guestName;
+    }
+
+    public void setGuestName(String guestName) {
+        this.guestName = guestName;
+    }
+
+    public String getGuestEmail() {
+        return guestEmail;
+    }
+
+    public void setGuestEmail(String guestEmail) {
+        this.guestEmail = guestEmail;
+    }
+
+    public LocalDate getCheckIn() {
+        return checkIn;
+    }
+
+    public void setCheckIn(LocalDate checkIn) {
+        this.checkIn = checkIn;
+    }
+
+    public LocalDate getCheckOut() {
+        return checkOut;
+    }
+
+    public void setCheckOut(LocalDate checkOut) {
+        this.checkOut = checkOut;
+    }
+
+    public String getRoomType() {
+        return roomType;
+    }
+
+    public void setRoomType(String roomType) {
+        this.roomType = roomType;
+    }
+
+    public Integer getNumberOfGuests() {
+        return numberOfGuests;
+    }
+
+    public void setNumberOfGuests(Integer numberOfGuests) {
+        this.numberOfGuests = numberOfGuests;
+    }
 }
