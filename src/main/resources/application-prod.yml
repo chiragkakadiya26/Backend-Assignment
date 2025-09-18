@@ -1,0 +1,40 @@
+spring:
+  data:
+    mongodb:
+      uri: ${MONGODB_URI}
+      database: ${MONGODB_DATABASE:hotel_booking_db}
+      # Additional SSL configuration for MongoDB Atlas
+      ssl:
+        enabled: true
+      ssl-invalid-hostname-allowed: true
+  mail:
+    host: ${MAIL_HOST:smtp.gmail.com}
+    port: ${MAIL_PORT:587}
+    username: ${MAIL_USERNAME}
+    password: ${MAIL_PASSWORD}
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: ${AUTH0_ISSUER_URI}
+
+auth0:
+  audience: ${AUTH0_AUDIENCE:https://hotel-api/api}
+
+app:
+  support:
+    email: ${SUPPORT_EMAIL}
+
+server:
+  port: ${PORT:9090}
+
+logging:
+  level:
+    root: INFO
+    com.hotel: DEBUG
