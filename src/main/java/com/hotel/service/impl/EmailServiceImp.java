@@ -4,19 +4,18 @@ import com.hotel.model.Booking;
 import com.hotel.model.Hotel;
 import com.hotel.service.EmailService;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
 
 @Service
+@ConditionalOnBean(JavaMailSender.class)
 @Slf4j
 public class EmailServiceImp implements EmailService {
 
     private final JavaMailSender mailSender;
-
-    @Value("${app.support.email}")
-    private String supportEmail;
 
     public EmailServiceImp(JavaMailSender mailSender) {
         this.mailSender = mailSender;
@@ -43,7 +42,7 @@ public class EmailServiceImp implements EmailService {
             }
             log.info("Booking notification sent for booking ID: {}", booking.getId());
         } catch (Exception e) {
-            log.error("Failed to send booking notification: {}", e.getMessage());
+            log.warn("Email sending skipped or failed: {}", e.getMessage());
         }
     }
 
