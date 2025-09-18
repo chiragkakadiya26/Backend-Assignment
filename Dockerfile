@@ -21,11 +21,15 @@ COPY --from=build /app/target/Backend-Assignment-0.0.1-SNAPSHOT.jar app.jar
 
 # Environment configuration
 ENV SPRING_PROFILES_ACTIVE=prod
-ENV JAVA_OPTS=""
+ENV JAVA_OPTS="-Xmx512m -Xms256m"
 
-# Heroku/Containers often pass PORT; default to 9090
+# Render uses PORT environment variable
 ENV PORT=9090
-EXPOSE 9090
+EXPOSE $PORT
+
+# Health check
+HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
+  CMD curl -f http://localhost:$PORT/actuator/health || exit 1
 
 # Use exec form; pass server.port and any JAVA_OPTS
 ENTRYPOINT ["sh", "-c", "java $JAVA_OPTS -Dserver.port=${PORT} -jar app.jar"]

@@ -3,10 +3,6 @@ spring:
     mongodb:
       uri: ${MONGODB_URI}
       database: ${MONGODB_DATABASE:hotel_booking_db}
-      # Additional SSL configuration for MongoDB Atlas
-      ssl:
-        enabled: true
-      ssl-invalid-hostname-allowed: true
   mail:
     host: ${MAIL_HOST:smtp.gmail.com}
     port: ${MAIL_PORT:587}
@@ -33,6 +29,16 @@ app:
 
 server:
   port: ${PORT:9090}
+
+# Actuator configuration for health checks
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+  endpoint:
+    health:
+      show-details: when-authorized
 
 logging:
   level:
